@@ -1,4 +1,4 @@
 <button
-  class="text-lg bg-black text-white rounded-full border-2 border-black px-6 py-1"
-  >LOAD MORE</button
+  class="text-lg bg-0/6/60 hover:bg-0/6 rounded-full border-0 px-6 py-1 text-3/6 hover:text-5/6 duration-200"
+  >SEE MORE</button
 >

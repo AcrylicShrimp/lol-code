@@ -8,7 +8,7 @@
       writtenAt={new Date()}
       content={"첫 글입니당\n테스트중\n뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁뷁"}
       code={"public static async main(): Promise<void> {\n    console.log('Hello World!'); // A very looooooooooooooooong comment! \n}"}
-      upvoteCount={41}
+      upvoteCount={2313}
       downvoteCount={2}
       comments={[
         ["1빠~", new Date(2022, 5, 8)],
@@ -27,7 +27,7 @@
         459,
         330,
       ]}
-      upvoteCount={41}
+      upvoteCount={712538}
       downvoteCount={2}
       comments={[
         ["1빠~", new Date(2022, 5, 8)],

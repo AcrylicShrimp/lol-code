@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { formatNumber } from "@libs/formatNumber";
+
   import upLongSvg from "@assets/icons/arrow-up-long.svg";
   import downLongSvg from "@assets/icons/arrow-down-long.svg";
 
@@ -19,12 +21,12 @@
   import { formatDistanceToNow } from "date-fns";
 </script>
 
-<article class="bg-white rounded-lg border-2 p-4">
+<article class="bg-1/6 rounded-lg border-2/6/20 border-2 p-4">
   <section>
-    <p class="pl-2 text-sm text-stone-500">
+    <p class="pl-2 text-sm text-5/6/60">
       {formatDistanceToNow(writtenAt, { addSuffix: true })}
     </p>
-    <p class="mt-3 text-lg">{content}</p>
+    <p class="mt-3 text-lg text-5/6">{content}</p>
   </section>
   <section class="mt-8">
     {#if code}
@@ -33,20 +35,20 @@
       <PostImageSnippet url={image[0]} width={image[1]} height={image[2]} />
     {/if}
   </section>
-  <section class="mt-8 text-xl flex flex-row items-center justify-start">
+  <section class="mt-8 text-base flex flex-row items-center justify-start">
     <PostVoteButton>
       <svg slot="icon"><use href={`#${upLongSvg}`} /></svg>
-      <span slot="text">{upvoteCount}</span>
+      <span slot="text">{formatNumber(upvoteCount)}</span>
     </PostVoteButton>
     <span class="flex-initial w-4" />
     <PostVoteButton>
       <svg slot="icon"><use href={`#${downLongSvg}`} /></svg>
-      <span slot="text">{downvoteCount}</span>
+      <span slot="text">{formatNumber(downvoteCount)}</span>
     </PostVoteButton>
     <span class="flex-1" />
     <PostCommentIndicator commentCount={comments.length} />
   </section>
-  <hr class="mt-8 rounded-sm border-0 h-0.5 bg-slate-200" />
+  <hr class="mt-8 rounded-sm border-0 h-0.5 bg-3/6/40" />
   <section class="mt-8">
     <PostCommentList {comments} />
   </section>

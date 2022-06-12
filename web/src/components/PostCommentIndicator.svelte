@@ -1,15 +1,17 @@
 <script lang="ts">
+  import { formatNumber } from "@libs/formatNumber";
+
   import messageDotsSvg from "@assets/icons/message-dots.svg";
 
   export let commentCount: number;
 </script>
 
 <div
-  class="indicator flex-initial flex flex-row items-center justify-start rounded-lg px-3 py-2"
+  class="indicator text-stone-400 flex-initial flex flex-row items-center justify-start rounded-lg px-3 py-2 text-3/6 fill-3/6"
 >
   <svg><use href={`#${messageDotsSvg}`} /></svg><span
     class="flex-auto w-2"
-  />{commentCount}
+  />{formatNumber(commentCount)}
 </div>
 
 <style lang="postcss">
