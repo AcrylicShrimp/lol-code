@@ -2,7 +2,8 @@
   export let text: string;
 </script>
 
-<pre class="rounded-md border-2 border-4/6/40 p-4 text-sm overflow-x-auto"><code
+<pre
+  class="rounded-md bg-0/6/40 border-2 border-4/6/40 p-4 text-sm overflow-x-auto"><code
     class="code-font">{text}</code
   ></pre>
 

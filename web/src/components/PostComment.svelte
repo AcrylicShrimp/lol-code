@@ -1,9 +1,9 @@
 <script lang="ts">
+  import { formatDistanceToNow } from "date-fns";
+
   export let index: number;
   export let comment: string;
   export let writtenAt: Date;
-
-  import { formatDistanceToNow } from "date-fns";
 </script>
 
 <div
@@ -12,7 +12,7 @@
   <div
     class="flex-initial flex flex-row items-center justify-start pl-1 text-sm text-5/6/40"
   >
-    <p class="flex-initial">{index + 1}</p>
+    <p class="flex-initial">{index}</p>
     <span class="flex-1" />
     <p class="flex-initial">
       {formatDistanceToNow(writtenAt, { addSuffix: true })}

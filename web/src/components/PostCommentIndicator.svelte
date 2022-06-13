@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { formatNumber } from "@libs/formatNumber";
-
   import messageDotsSvg from "@assets/icons/message-dots.svg";
+
+  import { formatNumber } from "@libs/formatNumber";
 
   export let commentCount: number;
 </script>
