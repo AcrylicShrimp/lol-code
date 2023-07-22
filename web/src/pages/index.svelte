@@ -39,6 +39,7 @@
 {/each}
 <InfiniteScroll
   container="window"
+  threshold={450}
   on:load={() => {
     fillPost();
   }}
