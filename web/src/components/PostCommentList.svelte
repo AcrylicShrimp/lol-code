@@ -18,7 +18,7 @@
   />
   <span class="flex-initial w-2" />
   <button
-    class="flex-initial rounded-md bg-3/6 border-2 border-2/6 hover:border-4/6 p-2 fill-5/6 duration-200"
+    class="flex-initial flex items-center justify-center px-4 py-3 rounded-md bg-3/6 border-2 border-2/6 hover:border-4/6 p-2 fill-5/6 duration-200"
   >
     <Icon svg={penSvg} />
   </button>

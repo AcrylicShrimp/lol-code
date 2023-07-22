@@ -21,15 +21,11 @@
     <p class="pl-2 text-sm text-5/6/60">
       {formatDistanceToNow(post.writtenAt, { addSuffix: true })}
     </p>
-    <p class="mt-3 text-lg text-5/6">{post.content}</p>
+    <p class="mt-3 text-lg text-5/6">{post.title}</p>
   </section>
   <section class="mt-8">
     {#if post.image}
-      <PostImageSnippet
-        url={post.image.url}
-        width={post.image.width}
-        height={post.image.height}
-      />
+      <PostImageSnippet url={post.image} />
     {:else}
       <PostTextSnippet text={post.code} />
     {/if}
