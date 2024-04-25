@@ -1,0 +1,78 @@
+service: lol-code-lambda
+
+frameworkVersion: "3"
+
+useDotenv: true
+
+provider:
+  name: aws
+  stage: prod
+  region: ap-northeast-2
+  runtime: nodejs14.x
+  iam:
+    role:
+      managedPolicies:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - ${env:ROLE_ARN_INVOKE_OTHER}
+
+  httpApi:
+    name: lol-code
+    disableDefaultEndpoint: true
+    cors:
+      allowedOrigins:
+        - https://lol-code.dev
+        - https://www.lol-code.dev
+
+functions:
+  generateUploadEndpoint:
+    handler: handler.generateUploadEndpoint
+    events:
+      - httpApi: "POST /upload-endpoints"
+    timeout: 6
+    memorySize: 128
+    environment:
+      REGION: ${env:REGION}
+      BUCKET: ${env:BUCKET}
+  triggerCodeHandler:
+    handler: handler.triggerCodeHandler
+    events:
+      - s3:
+        bucket: ${env:BUCKET}
+        event: s3:ObjectCreated:Put
+        rules:
+          - prefix: codes/
+    timeout: 10
+    memorySize: 128
+    environment:
+      REGION: ${env:REGION}
+      CODE_HANDLER: ${env:CODE_HANDLER}
+  triggerImageHandler:
+    handler: handler.triggerImageHandler
+    events:
+      - s3:
+        bucket: ${env:BUCKET}
+        event: s3:ObjectCreated:Put
+        rules:
+          - prefix: images/
+    timeout: 10
+    memorySize: 128
+    environment:
+      REGION: ${env:REGION}
+      IMAGE_HANDLER: ${env:IMAGE_HANDLER}
+  handleCode:
+    handler: handler.handleCode
+    timeout: 10
+    memorySize: 1024
+    environment:
+      REGION: ${env:REGION}
+      BUCKET: ${env:BUCKET}
+  handleImage:
+    handler: handler.handleImage
+    timeout: 10
+    memorySize: 1024
+    environment:
+      REGION: ${env:REGION}
+      BUCKET: ${env:BUCKET}
+
+plugins:
+  - serverless-esbuild
